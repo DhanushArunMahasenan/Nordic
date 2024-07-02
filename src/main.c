@@ -5,6 +5,7 @@
 //#include "nrf_delay.h"
 #include <zephyr/shell/shell.h>
 #include <zephyr/logging/log.h>
+#include <zephyr/sys/printk.h>
 //#include "boards.h"
 //#include "nrf_gpio.h"
 //#include "app_util_platform.h"
@@ -117,15 +118,11 @@ int main() {
 		/* Give RTT log time to be flushed before executing tests */
 		k_sleep(K_MSEC(500));
 	}
-start_timer();
-printk("Threshold trigger\r\n");
-int sum;
-for(int i=0;i<10;i++)
-    sum++;
-    sum = sum*10;
-// prints to serial port
-LOG_INF("starting");
-printk("Sum=%d", sum);
+//start_timer();
+printk("Ultrasound Detector Starting");
+
+
+
 
 // set up HC-SR04 pins
 //nrf_gpio_pin_dir_set(pinTrig, 0);//NRF_GPIO_PIN_DIR_OUTPUT);
@@ -136,15 +133,14 @@ printk("Sum=%d", sum);
 while(1) {
 
 // get HC-SR04 distance
-float dist;
+float dist=10;
 if(!getDistance(&dist)) {
 
 // enable to print to serial port
-printf("dist = %f cm\n", dist);
-k_sleep(K_SECONDS(1));
+printk("dist =%d\n", dist);
+k_sleep(K_MSEC(1000));
 }
 
-// delay
-//nrf_delay_ms(250);
+
 }
 }
