@@ -1,0 +1,17 @@
+{
+    "files.associations": {
+        "string.h": "c",
+        "kernel.h": "c",
+        "stdbool.h": "c",
+        "stdint.h": "c",
+        "nrf.h": "c",
+        "nrf51_bitfields.h": "c",
+        "nrf_gpiote.h": "c",
+        "__assert.h": "c",
+        "cstdio": "c"
+    },
+    "nrf-connect.debugging.bindings": {
+        "${workspaceFolder}/build": "Launch build",
+        "${workspaceFolder}/build_1": "Launch build_1"
+    }
+}
